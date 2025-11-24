@@ -38,7 +38,7 @@ to avoid booking unnecessary appointment in brick-and-mortar bank branches to sa
 - Dev Tools: GitHub
 
   
-## 3. Structure of the framework to follow 📐
+## 3. Analytical framework to follow 📐
 - :white_check_mark: 1. Exploratory Data Analysis
 - :white_large_square: 2. Remove outliers
 - :white_large_square: 3. Missing value imputation
