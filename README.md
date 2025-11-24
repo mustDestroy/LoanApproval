@@ -1,9 +1,7 @@
 # Loan Approval Prediction by Machine Learning
 
-
-
 ## 1. Scope of the project 🚀 
-Delivering answers to executive-driven business questions in the domain of finance e.g. banks, insurance companies or other financial institutions.
+Delivering key insights to executive-driven business questions by applying ML models in the domain of finance e.g. for banks, insurance companies or other financial institutions.
 
 **Business goals**:<br>
 Woodgrove bank wants to gain in-depth insights from the representative financial data to finalize
