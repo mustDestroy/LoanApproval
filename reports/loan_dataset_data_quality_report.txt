@@ -1,0 +1,39 @@
+Loan Dataset – Data Quality Report
+----------------------------------
+    error count loan_amount < 0: 0
+    error count loan_amount = 0: 0
+    maximum of loan_amount: 3576500
+    minimum of loan_amount: 16500
+    error count rate_of_interest < 0: 35255
+    error count rate_of_interest < 200: 144122
+    error count rate_of_interest >= 200: 0
+    maximum of rate_of_interest: 8.0
+    minimum of rate_of_interest: -1.0
+    error count interest_rate_spread < 0: 21417
+    error count interest_rate_spread < 200: 108687
+    error count interest_rate_spread >= 200: 0
+    maximum of interest_rate_spread: 3.357
+    minimum of interest_rate_spread: -3.638
+    error count term < 0: 0
+    error count term = 0: 0
+    maximum of term: 360.0
+    minimum of term: 96.0
+    error count property_value < 0: 0
+    error count property_value = 0: 0
+    maximum of property_value: 16508000.0
+    minimum of property_value: 8000.0
+    error count income < 0: 0
+    maximum of income: 578580.0
+    minimum of income: 0.0
+    error count ltv < 0: 0
+    error count ltv = 0: 0
+    error count ltv < 300: 129519
+    error count ltv >= 300: 6
+    maximum of ltv: 7831.25
+    minimum of ltv: 0.967478198
+    error count dtir1 < 0: 0
+    error count dtir1 = 0: 0
+    error count dtir1 < 300: 120637
+    error count dtir1 >= 300: 0
+    maximum of dtir1: 61.0
+    minimum of dtir1: 5.0
