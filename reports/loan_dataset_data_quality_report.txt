@@ -41,6 +41,12 @@ income:
     maximum of income: 578580.0
     minimum of income: 0.0
 
+credit_score:
+    error count credit_score < 0: 0
+    error count credit_score = 0: 0
+    maximum of credit_score: 900
+    minimum of credit_score: 500
+
 ltv:
     error count ltv < 0: 0
     error count ltv = 0: 0
@@ -49,6 +55,11 @@ ltv:
     maximum of ltv: 7831.25
     minimum of ltv: 0.967478198
 
+status:
+    error count status < 0: 0
+    maximum of status: 1
+    minimum of status: 0
+
 dtir1:
     error count dtir1 < 0: 0
     error count dtir1 = 0: 0
@@ -56,3 +67,12 @@ dtir1:
     error count dtir1 >= 300: 0
     maximum of dtir1: 61.0
     minimum of dtir1: 5.0
+
+high_interest_rate:
+    error count high_interest_rate < 0: 0
+    maximum of high_interest_rate: 1
+    minimum of high_interest_rate: 0
+
+senior_age:
+    maximum of senior_age: 1
+    minimum of senior_age: 0
