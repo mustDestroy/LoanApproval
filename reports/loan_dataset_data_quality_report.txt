@@ -7,19 +7,24 @@ Loan Dataset – Data Quality Report
 loan_amount:
     error count loan_amount < 0: 0
     error count loan_amount = 0: 0
+    error count loan_amount = 1: 0
     maximum of loan_amount: 3576500
     minimum of loan_amount: 16500
 
 rate_of_interest:
     error count rate_of_interest < 0: 35255
+    error count rate_of_interest = 1: 35256
     error count rate_of_interest < 200: 144122
+    error count abs(rate_of_interest) < 200: 144122
     error count rate_of_interest >= 200: 0
     maximum of rate_of_interest: 8.0
     minimum of rate_of_interest: -1.0
 
 interest_rate_spread:
     error count interest_rate_spread < 0: 21417
+    error count interest_rate_spread = 1: 91583
     error count interest_rate_spread < 200: 108687
+    error count abs(interest_rate_spread) < 200: 108687
     error count interest_rate_spread >= 200: 0
     maximum of interest_rate_spread: 3.357
     minimum of interest_rate_spread: -3.638
@@ -27,257 +32,63 @@ interest_rate_spread:
 term:
     error count term < 0: 0
     error count term = 0: 0
-    maximum of term: 360.0
-    minimum of term: 96.0
+    error count term = 1: 0
+    maximum of term: 360
+    minimum of term: 96
 
 property_value:
     error count property_value < 0: 0
     error count property_value = 0: 0
+    error count property_value = 1: 0
     maximum of property_value: 16508000.0
     minimum of property_value: 8000.0
 
 income:
     error count income < 0: 0
+    error count income = 1: 1233
     maximum of income: 578580.0
     minimum of income: 0.0
 
 credit_score:
     error count credit_score < 0: 0
     error count credit_score = 0: 0
+    error count credit_score = 1: 0
     maximum of credit_score: 900
     minimum of credit_score: 500
 
 ltv:
     error count ltv < 0: 0
     error count ltv = 0: 0
+    error count ltv = 1: 1
     error count ltv < 300: 129519
+    error count abs(ltv) < 300: 129519
     error count ltv >= 300: 6
     maximum of ltv: 7831.25
     minimum of ltv: 0.967478198
 
 status:
     error count status < 0: 0
+    error count status = 1: 108687
     maximum of status: 1
     minimum of status: 0
 
 dtir1:
     error count dtir1 < 0: 0
     error count dtir1 = 0: 0
+    error count dtir1 = 1: 0
     error count dtir1 < 300: 120637
+    error count abs(dtir1) < 300: 120637
     error count dtir1 >= 300: 0
     maximum of dtir1: 61.0
     minimum of dtir1: 5.0
 
 high_interest_rate:
     error count high_interest_rate < 0: 0
+    error count high_interest_rate = 1: 96619
     maximum of high_interest_rate: 1
     minimum of high_interest_rate: 0
 
 senior_age:
-    maximum of senior_age: 1
-    minimum of senior_age: 0
-Loan Dataset – Data Quality Report
-==================================
-
- Numerical Data Errors
-----------------------
-
-loan_amount:
-    error count loan_amount < 0: 0
-    error count loan_amount = 0: 0
-    maximum of loan_amount: 3576500
-    minimum of loan_amount: 16500
-
-rate_of_interest:
-    error count rate_of_interest < 0: 35255
-    error count rate_of_interest < 200: 144122
-    error count rate_of_interest >= 200: 0
-    maximum of rate_of_interest: 8.0
-    minimum of rate_of_interest: -1.0
-
-interest_rate_spread:
-    error count interest_rate_spread < 0: 21417
-    error count interest_rate_spread < 200: 108687
-    error count interest_rate_spread >= 200: 0
-    maximum of interest_rate_spread: 3.357
-    minimum of interest_rate_spread: -3.638
-
-term:
-    error count term < 0: 0
-    error count term = 0: 0
-    maximum of term: 360
-    minimum of term: 96
-Loan Dataset – Data Quality Report
-==================================
-
- Numerical Data Errors
-----------------------
-
-loan_amount:
-    error count loan_amount < 0: 0
-    error count loan_amount = 0: 0
-    maximum of loan_amount: 3576500
-    minimum of loan_amount: 16500
-
-rate_of_interest:
-    error count rate_of_interest < 0: 35255
-    error count rate_of_interest < 200: 144122
-    error count rate_of_interest >= 200: 0
-    maximum of rate_of_interest: 8.0
-    minimum of rate_of_interest: -1.0
-
-interest_rate_spread:
-    error count interest_rate_spread < 0: 21417
-    error count interest_rate_spread < 200: 108687
-    error count interest_rate_spread >= 200: 0
-    maximum of interest_rate_spread: 3.357
-    minimum of interest_rate_spread: -3.638
-
-term:
-    error count term < 0: 0
-    error count term = 0: 0
-    maximum of term: 360
-    minimum of term: 96
-Float64 data validation for
----------------------------
-term
-Loan Dataset – Data Quality Report
-==================================
-
- Numerical Data Errors
-----------------------
-
-loan_amount:
-    error count loan_amount < 0: 0
-    error count loan_amount = 0: 0
-    maximum of loan_amount: 3576500
-    minimum of loan_amount: 16500
-
-rate_of_interest:
-    error count rate_of_interest < 0: 35255
-    error count rate_of_interest < 200: 144122
-    error count rate_of_interest >= 200: 0
-    maximum of rate_of_interest: 8.0
-    minimum of rate_of_interest: -1.0
-
-interest_rate_spread:
-    error count interest_rate_spread < 0: 21417
-    error count interest_rate_spread < 200: 108687
-    error count interest_rate_spread >= 200: 0
-    maximum of interest_rate_spread: 3.357
-    minimum of interest_rate_spread: -3.638
-
-term:
-    error count term < 0: 0
-    error count term = 0: 0
-    maximum of term: 360
-    minimum of term: 96
-Float64 data validation for
----------------------------
-term
-Loan Dataset – Data Quality Report
-==================================
-
- Numerical Data Errors
-----------------------
-
-loan_amount:
-    error count loan_amount < 0: 0
-    error count loan_amount = 0: 0
-    maximum of loan_amount: 3576500
-    minimum of loan_amount: 16500
-
-rate_of_interest:
-    error count rate_of_interest < 0: 35255
-    error count rate_of_interest < 200: 144122
-    error count rate_of_interest >= 200: 0
-    maximum of rate_of_interest: 8.0
-    minimum of rate_of_interest: -1.0
-
-interest_rate_spread:
-    error count interest_rate_spread < 0: 21417
-    error count interest_rate_spread < 200: 108687
-    error count interest_rate_spread >= 200: 0
-    maximum of interest_rate_spread: 3.357
-    minimum of interest_rate_spread: -3.638
-
-term:
-    error count term < 0: 0
-    error count term = 0: 0
-    maximum of term: 360
-    minimum of term: 96
-Float64 data validation for
----------------------------
-term
-360
-180
-240
-156
-336
-348
-96
-300
-120
-324
-228
-312
-276
-288
-144
-132
-192
-108
-204
-168
-216
-252
-264
-165
-322
-
-property_value:
-    error count property_value < 0: 0
-    error count property_value = 0: 0
-    maximum of property_value: 16508000.0
-    minimum of property_value: 8000.0
-
-income:
-    error count income < 0: 0
-    maximum of income: 578580.0
-    minimum of income: 0.0
-
-credit_score:
-    error count credit_score < 0: 0
-    error count credit_score = 0: 0
-    maximum of credit_score: 900
-    minimum of credit_score: 500
-
-ltv:
-    error count ltv < 0: 0
-    error count ltv = 0: 0
-    error count ltv < 300: 129519
-    error count ltv >= 300: 6
-    maximum of ltv: 7831.25
-    minimum of ltv: 0.967478198
-
-status:
-    error count status < 0: 0
-    maximum of status: 1
-    minimum of status: 0
-
-dtir1:
-    error count dtir1 < 0: 0
-    error count dtir1 = 0: 0
-    error count dtir1 < 300: 120637
-    error count dtir1 >= 300: 0
-    maximum of dtir1: 61.0
-    minimum of dtir1: 5.0
-
-high_interest_rate:
-    error count high_interest_rate < 0: 0
-    maximum of high_interest_rate: 1
-    minimum of high_interest_rate: 0
-
-senior_age:
+    error count senior_age = 1: 85461
     maximum of senior_age: 1
     minimum of senior_age: 0
