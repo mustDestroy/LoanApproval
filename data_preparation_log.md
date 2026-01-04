@@ -29,7 +29,7 @@ Target variable: status <br>
 - 35,255 observations with value = -1.0 
 
 **Diagnosis:**
-- Sentinel value implying: the field not applicable, application rejected before pricing, loan not priced yet (it is a process signal, not a financial one)
+- Sentinel value implying the field not applicable, application rejected before pricing, loan not priced yet (it is a process signal, not a financial one)
 - Value magnitude and frequency suggest placeholder indicating missing or non-applicable pricing information, particularly the value itself too frequent and too round compared to real negative rates e.g.  -0.05 or -0.12
 - Negative retail interest rates are theoretically plausible in macro finance, but practically implausible for retail loans in this context
 
@@ -100,6 +100,7 @@ Target variable: status <br>
 
 **Feature:** ltv (Loan-To-Value) <br>
 **Issue Identified:**
+
 
 **Diagnosis:** <br>
 

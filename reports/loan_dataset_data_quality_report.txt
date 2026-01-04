@@ -92,3 +92,146 @@ senior_age:
     error count senior_age = 1: 85461
     maximum of senior_age: 1
     minimum of senior_age: 0
+Loan Dataset – Data Quality Report
+==================================
+
+ Numerical Data Errors
+----------------------
+
+loan_amount:
+error count: loan_amount < 0: 0
+    maximum of loan_amount: 3576500
+    minimum of loan_amount: 16500
+Loan Dataset – Data Quality Report
+==================================
+
+ Numerical Data Errors
+----------------------
+
+loan_amount:
+error count: loan_amount < 0: 0
+    maximum of loan_amount: 3576500
+    minimum of loan_amount: 16500
+
+rate_of_interest:
+error count: rate_of_interest <= 0: 35255
+error count: rate_of_interest >= 200: 0
+    maximum of rate_of_interest: 8.0
+    minimum of rate_of_interest: -1.0
+Loan Dataset – Data Quality Report
+==================================
+
+ Numerical Data Errors
+----------------------
+
+loan_amount:
+error count: loan_amount < 0: 0
+    maximum of loan_amount: 3576500
+    minimum of loan_amount: 16500
+
+rate_of_interest:
+error count: rate_of_interest <= 0: 35255
+error count: rate_of_interest >= 200: 0
+    maximum of rate_of_interest: 8.0
+    minimum of rate_of_interest: -1.0
+
+interest_rate_spread:
+error count: abs(interest_rate_spread) <= 200: 0
+    maximum of interest_rate_spread: 3.357
+    minimum of interest_rate_spread: -3.638
+
+term:
+error count: term <= 12: 0
+error count: term >= 360: 0
+    maximum of term: 360.0
+    minimum of term: 96.0
+
+property_value:
+error count: property_value < 0: 0
+    maximum of property_value: 16508000.0
+    minimum of property_value: 8000.0
+
+income:
+error count: income < 0: 1233
+    maximum of income: 578580.0
+    minimum of income: 0.0
+
+credit_score:
+error count: credit_score <= 200: 0
+error count: credit_score >= 900: 0
+    maximum of credit_score: 900
+    minimum of credit_score: 500
+	
+
+
+Loan Dataset – Data Quality Report
+==================================
+
+ Numerical Data Errors
+----------------------
+
+loan_amount:
+error count: loan_amount < 0: 0
+    maximum of loan_amount: 3576500
+    minimum of loan_amount: 16500
+
+rate_of_interest:
+error count: rate_of_interest <= 0: 35255
+error count: rate_of_interest >= 200: 0
+    maximum of rate_of_interest: 8.0
+    minimum of rate_of_interest: -1.0
+
+interest_rate_spread:
+error count: abs(interest_rate_spread) <= 200: 0
+    maximum of interest_rate_spread: 3.357
+    minimum of interest_rate_spread: -3.638
+
+term:
+error count: term <= 12: 0
+error count: term >= 360: 0
+    maximum of term: 360.0
+    minimum of term: 96.0
+
+property_value:
+error count: property_value < 0: 0
+    maximum of property_value: 16508000.0
+    minimum of property_value: 8000.0
+
+income:
+error count: income < 0: 1233
+    maximum of income: 578580.0
+    minimum of income: 0.0
+
+credit_score:
+error count: credit_score <= 200: 0
+error count: credit_score >= 900: 0
+    maximum of credit_score: 900
+    minimum of credit_score: 500
+
+ltv:
+error count: ltv <= 1: 1
+error count: ltv >= 300: 6
+    maximum of ltv: 7831.25
+    minimum of ltv: 0.967478198
+
+status:
+error count: status <= 0: 0
+error count: status >= 1: 0
+    maximum of status: 1
+    minimum of status: 0
+
+dtir1:
+error count: dtir1 <= 1: 0
+error count: dtir1 >= 100: 0
+
+high_interest_rate:
+error count: high_interest_rate <= 0: 0
+error count: high_interest_rate >= 1: 0
+    maximum of high_interest_rate: 1
+    minimum of high_interest_rate: 0
+
+senior_age:
+error count: senior_age <= 0: 0
+error count: senior_age >= 1: 0
+    maximum of senior_age: 1
+    minimum of senior_age: 0
