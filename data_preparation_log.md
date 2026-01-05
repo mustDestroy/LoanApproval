@@ -31,7 +31,7 @@ Target variable: status <br>
 **Diagnosis:**
 - Sentinel value implying the field not applicable, application rejected before pricing, loan not priced yet (it is a process signal, not a financial one)
 - Value magnitude and frequency suggest placeholder indicating missing or non-applicable pricing information, particularly the value itself too frequent and too round compared to real negative rates e.g.  -0.05 or -0.12
-- Negative retail interest rates are theoretically plausible in macro finance, but practically implausible for retail loans in this context
+- Negative retail interest rates are theoretically plausible in macro finance, but practically implausible for residental loans in this context
 
 
 **Decision:**
@@ -47,12 +47,22 @@ Target variable: status <br>
 
 **Feature:** interest_rate_spread<br>
 **Issue Identified:** <br>
+- No data quality issues identified
 
 **Diagnosis:** <br>
+- The 'interest_rate_spread' represents the difference between the applied loan interest rate and benchmark rate
+- The observed values fall within range [-3.638, 3.357]
+- Negative spreads are economically plausible and indicate that the loan is priced below the benchmark. It can happen due to promotional pricing, borrower's creditworthiness
+- Values are consistent with realistic retail banking scenarios
+- No implausible extremes were observed.
 
 **Decision:** <br>
+- No data cleaning action required
 
 **Rationale:** 
+- The variable aligns with standard banking definitions and practices
+- Preserving the original values maintains the economic interpretability and predictive information of the feature.
+
 <br><br>
 
 
@@ -100,13 +110,28 @@ Target variable: status <br>
 
 **Feature:** ltv (Loan-To-Value) <br>
 **Issue Identified:**
-
+- 1 observation where value < 1% (value = 0.967478198) 
+- 6 observations where value > 300% 
 
 **Diagnosis:** <br>
+- LTV is defined as the ratio of loan amount to property value, typically expressed as a percentage. 
+- In retail, LTV above 100% are very unusual,  LTV above 200-300% are economically implausible
+- The observation with LTV ~0.97 is consistent with unit inconsistency (ratio stored instead of percentage)
+- The 6 observations represent absurd percentages (>300%) => these are data errors
+- Such small number of observations suggest the issue is not systematic
+- Extreme values are likely to be caused by sentinel / fallback calculations in the bank's workflow
+- 'ltv' and 'property_value' have a strong relationship
 
 **Decision:** <br>
+- Values that are element of interval (0,1) multiplied by 100 to comply with unit consistency
+- Values exceeding 300% are reclassified as missing (NA)
+- Preserve missingness indicators to keep invaluable process signals
 
 **Rationale:** 
+- The variable aligns with standard banking definitions and practices
+- Excluding economically implausible values prevents model distortion 
+
+
 <br><br>
 
 
