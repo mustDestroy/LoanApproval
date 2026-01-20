@@ -40,7 +40,7 @@ to avoid booking unnecessary appointment in brick-and-mortar bank branches to sa
   
 ## 3. Analytical framework to follow 📐
 - :white_check_mark: 1. Exploratory Data Analysis
-- :white_large_square: 2. Remove outliers
+- :white_large_square: 2. Data Quality & Data Cleaning
 - :white_large_square: 3. Missing value imputation
 - :white_large_square: 4. Feature engineering
 - :white_large_square: 5. Feature scaling (normalization/standarization)
@@ -55,12 +55,15 @@ to avoid booking unnecessary appointment in brick-and-mortar bank branches to sa
 **Other tasks to do**
 - :white_check_mark: Searching for Dataset
 - :white_large_square: Write Executive Summary
-- :white_large_square: Save figures/images
+- :white_check_mark: Save figures/images
 
 **Further steps**
 - :white_large_square: Employ cloud services e.g. Databricks, Snowflake
 - :white_large_square: Modularize the source code
 - :white_large_square: Refactroing source code
+- :white_large_square: Add exception handling
+- :white_large_square: Fine-tune figures
+
 
 
 
