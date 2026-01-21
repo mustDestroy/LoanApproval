@@ -56,13 +56,17 @@ to avoid booking unnecessary appointment in brick-and-mortar bank branches to sa
 - :white_check_mark: Searching for Dataset
 - :white_large_square: Write Executive Summary
 - :white_check_mark: Save figures/images
+- :white_large_square: Add exception handling
+- :white_large_square: Fine-tune figures
+- :white_large_square: Add silent logging in functions
+- :white_large_square: Use data types in function args
 
 **Further steps**
 - :white_large_square: Employ cloud services e.g. Databricks, Snowflake
 - :white_large_square: Modularize the source code
 - :white_large_square: Refactroing source code
-- :white_large_square: Add exception handling
-- :white_large_square: Fine-tune figures
+
+
 
 
 
