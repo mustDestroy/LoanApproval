@@ -59,7 +59,9 @@ to avoid booking unnecessary appointment in brick-and-mortar bank branches to sa
 - :white_large_square: Add exception handling
 - :white_large_square: Fine-tune figures
 - :white_large_square: Add silent logging in functions
-- :white_large_square: Use data types in function args
+- :white_check_mark: Use data types in function args
+- :white_large_square: Set unified bar width in bar/count plots
+- :white_check_mark: Use .svg format to save figures
 
 **Further steps**
 - :white_large_square: Employ cloud services e.g. Databricks, Snowflake
