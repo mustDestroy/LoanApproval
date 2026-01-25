@@ -2,15 +2,190 @@
 This document records all data cleaning, validation and transformation decisions made during the analysis. The goal is to ensure transparency, reproductability, and defensibility of the modeling process.
 
 
-# 2. Exploratory Data Analysis
-Source: German banking data from 2019 <br>
+# 2. Exploratory Data Analysis (EDA)
+Source: German banking data from 2019 [Link](https://www.kaggle.com/datasets/ychope/loan-approval-dataset/data)<br>
 Domain: Loan approval/Credit risk <br>
 Target variable: status <br>
+
+## 2.1 Feature Glossary
+**Loan & Application Characteristics**
+- loan_limit: Indicates whether the loan amount falls within conforming loan limits or exceeds regulatory thresholds
+- approv_in_adv: Whether the Loan has been approved in advance, before formal application submission
+- loan_type: Type of loan 
+- loan_purpose: Purpose of Loan e.g. home purchase, refinancing
+- submission_of_application: The channel through which the loan application was submitted (e.g., online, broker, branch)
+- year: Calendar year when the loan was accepted or rejected
+
+**Applicant's profile**
+- Unnamed: 0 : Anonimized applicant's name
+- id: Loan applicant ID
+- gender: Gender of loan applicant
+- age: Age category of the applicant
+- income: Annual income of loan applicant
+- senior_age: Indicates whether the applicant falls into a senior age group
+- region: Geographic region of loan applicant
+
+**Credit History**
+- credit_worthiness: Categorical assessment of the applicant’s overall credit risk profile
+- open_credit: Indicates whether the applicant has open lines of credit at the time of application
+- co-applicant_credit_type: Credit history classification of the co-applicant, if present
+- credit_type: Type of credit history or bureau record associated with the applicant
+- credit_score: Applicant's credit score, summarizing the applicant’s creditworthiness
+
+
+**Loan & Payment Structure**
+- loan_amount: Loan amount
+- rate_of_interest: Loan interest rate (If approved. NaN if the loan is not approved)
+- interest_rate_spread: Difference between the loan’s interest rate and a benchmark reference rate
+- term: Duration of the loan repayment period, measured in months
+- neg_ammortization: Indicator of whether the loan allows negative amortization
+- interest_only: Specifies whether the loan permits interest-only payments for an initial period
+- lump_sum_payment: Indicates whether a lump-sum or balloon payment is required at maturity
+- high_interest_rate: Flag identifying loans with interest rates above a predefined threshold
+
+**Fees**
+- upfront_charges: Fees charged at loan origination, including processing or administrative costs
+
+**Property & Collateral Information**
+- property_value: Appraised or estimated value of the collateral property
+- ltv: Ratio of the loan amount to the property value, a key risk metric
+- construction_type: Classification of the property’s construction 
+- occupancy_type: Indicates whether the property is owner-occupied, rented, or secondary residence
+- secured_by: Type of asset used to secure the loan
+- security_type: Classification of the collateral or lien structure securing the loan
+- total_units: Number of residential units associated with the property
+
+**Business & Usage**
+- business_or_commercial: Business loan or commercial loan
+
+**Debt &Affordability Indicators**
+- dtir1: Ratio of total debt obligations to income
+
+**Target Variable**
+- status: Loan outcome indicating approval or rejection
+
+
+## 2.2 Data Characteristics
+ ### 2.2.1 Data Dimensionality
+The dataset constitutes of 148670 rows and 37 columns. Each row indicates one observation whose properties are described by 37 different features in the dataset. See the dimensionality below.<br>
+
+<div align="center">
+    <img src="figures/eda/loan_dataset_dimensionality.svg" alt=EDA_data_dimensionality width=600 height=400>
+</div>
+
+
+### 2.2.2 Data Types
+The dataset contains different data types. The types are representing intiger, float and object type data. 
+The intiger and float types are so-called numerical features, while the object type can be interpreted as categorial features.
+Due to the different data types, it is identified as heterogenous dataset.
+See the number of data types below.
+
+<div align="center">
+    <img src="figures/eda/number_of_data_types_in_loan_dataset.svg" alt=EDA_data_types width=600 height=400>
+</div>
+
+
+### 2.2.3 Missing Values
+13 features contain missing values.
+upfront_charges and interest_rate_spread are the dominant ones up to nearly 40k missing values.<br>
+A suspicious phenomenon can be observed among pairs of features.
+- The number of missing values among upfront_charges and interest_rate_spread is closely equal.
+- The number of missing values among property_value and ltv is equal.
+
+This phenomenon might derive from strong relationship among these feature groups. It requires further statistical examination.
+See the number of missing values below.
+
+<div align="center">
+    <img src="figures/eda/number_of_missing_values_per_features_in_loan_dataset.svg" width=800 height=600>
+</div>
+
+## 2.3 Properties of Numerical Features
+
+### 2.3.1 Data Granularity (uniqueness) 
+The plot below shows the granularity (the uniqueness) of numerical features expressed in ratios.
+Higher the ratio, higher the number of unique values in the given feature.
+Features with ratio close to 1.0 imply unique identifiers in the dataset, rahter than informative/predictive features
+Features  'Unnamed:0', 'id' and 'year'  do not bring any valuable information to the model hence can be removed from further analysis
+
+<div align="center">
+    <img src="figures/eda/granularity_of_numeric_features.svg" width=600 height=400>
+</div>
+
+
+
+### 2.3.2 Univariate Analysis
+
+<div align="center">
+    <img src="figures/eda/distribution_of_numerical_features_in_loan_dataset.svg" width=1600 height=1400>
+</div>
+<br>
+<br>
+<br>
+<br>
+The features 'status', 'high_interest_rate', 'senior_age' are binary features as the value set is [0;1].
+As a result, cardinality is 2 of these features.
+The plot depicts the cardinality and the frequency to illustrate the imbalancement.
+It is particularly important for the target variable as its imbalancement can negatively impact the model's training.   
+
+- Value 1 in 'status' is very under represented
+- Value 1 in 'high_interest_rate' is very under represted
+- Value 1 in 'senior_age' is under represented
+
+These have to be taken into consideration at the time of sampling the dataset.
+
+<div align="center">
+    <img src="figures/eda/distribution_of_binary_numerical_features.svg" width=800 height=600>
+</div>
+
+
+### 2.3.3 Multivariate Analysis
+
+Heatmap contains only the numerical features of the dataset. 
+The upper half of the heatmap has been removed since it shows the same information as the remained one.
+Including target variable in correlation matrix is a standard method to aid to reveal potential predictor variables.
+
+
+<div align="center">
+    <img src="figures/eda/heatmap_of_numerical_features_in_loan_dataset.svg" width=800 height=600>
+</div>
+
+
+
+
+## 2.4 Properties of Categorical Features
+
+
+### 2.4.1 Correction of Inconsistent Labels and Values
+
+### 2.4.2 Univariate Analysis
+
+
+### 2.4.3 Multivariate Analysis
+
+
+
+## 2.5 Identifying Missing Value Mechanisms
+### 2.5.1 Patterns of Missingness
+
+
+
+
+### 2.5.2 Missingness Indicator Variables
+
+Applying Missingness Indicator Variables in order to be able to examine the relationship of missing values among the features.  
+
+
+
+
+
+
+
+
+
 
 
 # 3. Data Quality & Data Cleaning decisions
 <br>
-
 ## 3.1 Numerical features
 
 
