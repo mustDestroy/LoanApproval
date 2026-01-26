@@ -139,10 +139,72 @@ These have to be taken into consideration at the time of sampling the dataset.
 
 
 ### 2.3.3 Multivariate Analysis
+Correlation matrix is applied to understand the relationships among numerical features. <br><br>
 
-Heatmap contains only the numerical features of the dataset. 
-The upper half of the heatmap has been removed since it shows the same information as the remained one.
+**Global Overview**<br>
+The correlation matrix exhibits predominantly weak linear relationships, with a limited number of moderate and strong correlations across features. It indicates low overall multicollinearity and a diverse numerical feature space for downstream modeling.
+
+**Economically Meaningful Correlations** <br>
+Several moderate to strong correlations examined and align with financial definitions and standard business practices.
+
+
+- property_value and loan_amount ρ~0.73 <br>
+A strong positive correlation refelcts a secured business logic as the higher collateral value, the larger loan amounts taken out
+
+- interest_rate_spread and rate_of_interest ρ~0.61 <br>
+A strong positive correlation reflects consistency with banks' pricing structure as the spread is a fundamental component of the final interest rate calculation
+
+- high_interest_rate and rate_of_interest ρ~0.55 <br>
+A strong positive correlation originates from definitional dependency, as high_interest_rate is a binary feature derived from the continuous rate_of_interest.
+
+- income and loan_amount demonstrate ρ~0.46 <br>
+A moderate positive correlation reflects affordability assesment, where the higher income supports stronger borrowing capacity
+
+- high_interest_rate and interest_rate_spread ρ~0.43 <br>
+A moderate positive correlation is consistent with pricing tiers and risk-based rate adjustments
+
+- income and property_value ρ~0.41 <br>
+A moderate positive correlation reflects the affordability of loan applicants, as loan applicants with higher income tend to buy higher-value properties
+
+- dtir1 and income demonstrate ρ~ -0.27 <br>
+A weak-to-moderate negative correlation reflects affordability assessment, as income is a pivotal component of DTIR calculation 
+
+- property_value and interest_rate_spread ρ~ -0.33 <br> 
+A moderate negative correlation suggesting more favorable pricing for loans covered by higher-calue collateral
+
+- interest_rate_spread and loan_amount ρ~ 0.38 <br>
+A moderate negative correlation potentially reflecting preferential pricing for larger loan exposures or borrower selection effects.
+
+- status and rate_of_interest ρ ~0.97 demonstrates
+
+An extremely strong negative correlation indicates post-decision pricing rather than a causal approval driver. Interest rates are assigned to loan only if the loan is approved, hence this feature constitutes target leakage for approval prediction tasks and will be excluded from downstream models.
+
+
+**Weak or Orthogonal Relationships**
+
+- credit_score demonstrates ρ~0.0 <br>
+correlation with other features
+
+- term demonstrates weak correlation ρ~0.10 <br> 
+term affects credit risk conditionally, not linearly
+
+- senior_age demonstates weak correlation ρ~0.10 <br>
+ demographic segmentation is not a strong predictor alone
+
+
+**Redundancy & Multicollinearity Assessment**<br>
+
+
+
+**Modeling Implications**<br>
+
+**Side-notes**
 Including target variable in correlation matrix is a standard method to aid to reveal potential predictor variables.
+The upper half of the heatmap has been removed since it shows the same information as the remained one.
+
+This strong correlation can distort the model 
+
+
 
 
 <div align="center">
@@ -161,6 +223,8 @@ Including target variable in correlation matrix is a standard method to aid to r
 
 
 ### 2.4.3 Multivariate Analysis
+
+
 
 
 
