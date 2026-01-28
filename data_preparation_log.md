@@ -141,6 +141,12 @@ These have to be taken into consideration at the time of sampling the dataset.
 ### 2.3.3 Multivariate Analysis
 Correlation matrix is applied to understand the relationships among numerical features. <br><br>
 
+
+<div align="center">
+    <img src="figures/eda/heatmap_of_numerical_features_in_loan_dataset.svg" width=800 height=600>
+</div>
+
+
 **Global Overview**<br>
 The correlation matrix exhibits predominantly weak linear relationships, with a limited number of moderate and strong correlations across features. It indicates low overall multicollinearity and a diverse numerical feature space for downstream modeling.
 
@@ -153,9 +159,6 @@ A strong positive correlation refelcts a secured business logic as the higher co
 
 - interest_rate_spread and rate_of_interest ρ~0.61 <br>
 A strong positive correlation reflects consistency with banks' pricing structure as the spread is a fundamental component of the final interest rate calculation
-
-- high_interest_rate and rate_of_interest ρ~0.55 <br>
-A strong positive correlation originates from definitional dependency, as high_interest_rate is a binary feature derived from the continuous rate_of_interest.
 
 - income and loan_amount demonstrate ρ~0.46 <br>
 A moderate positive correlation reflects affordability assesment, where the higher income supports stronger borrowing capacity
@@ -175,41 +178,41 @@ A moderate negative correlation suggesting more favorable pricing for loans cove
 - interest_rate_spread and loan_amount ρ~ 0.38 <br>
 A moderate negative correlation potentially reflecting preferential pricing for larger loan exposures or borrower selection effects.
 
-- status and rate_of_interest ρ ~0.97 demonstrates
-
+**Target Leakage Identification** <br>
+- status and rate_of_interest ρ ~0.97 <br>
 An extremely strong negative correlation indicates post-decision pricing rather than a causal approval driver. Interest rates are assigned to loan only if the loan is approved, hence this feature constitutes target leakage for approval prediction tasks and will be excluded from downstream models.
 
 
 **Weak or Orthogonal Relationships**
 
 - credit_score demonstrates ρ~0.0 <br>
-correlation with other features
+Refelcts a weak correlation with other numerical features.
 
 - term demonstrates weak correlation ρ~0.10 <br> 
-term affects credit risk conditionally, not linearly
+Reflects weak correlation affects credit risk conditionally rather than linearly.
 
 - senior_age demonstates weak correlation ρ~0.10 <br>
- demographic segmentation is not a strong predictor alone
+ Reflects demographic segmentation is not a strong predictor alone.
 
 
 **Redundancy & Multicollinearity Assessment**<br>
-
-
+- high_interest_rate and rate_of_interest ρ~0.55 <br> 
+Represents a definitional dependency, as high_interest_rate (a binary feature) is derived from the continuous rate_of_interest. While this contains redundancy in principle, the redundancy will have no deleterious impact on downstream models because rate_of_interest will be excluded. As a result, high_interest_rate is treated as an independent feature without including multicollinearity.
+- Observed strong economically meaningful correlations complies with structural or definitional banking mechanisms and do not carry duplicated information.
+These features encode economically linked dimensions of credit risk assesment e.g. affordibility. 
 
 **Modeling Implications**<br>
-
-**Side-notes**
-Including target variable in correlation matrix is a standard method to aid to reveal potential predictor variables.
-The upper half of the heatmap has been removed since it shows the same information as the remained one.
-
-This strong correlation can distort the model 
+All econimically meaningful but correlated features are retained to allow downstream models to learn nonlinear effects and interaction-driven risk patterns. Features recognized as post-decision will be excluded from approval prediction models to eleminate target leakage. All in all, the correlation matrix supports the application of regularized linear and tree-based models.
 
 
+**Side-notes** <br>
+Including target variable in correlation matrix is a standard method to aid revealing potential predictor variables. <br>
+The upper half of the correlation matrix has been removed since it shows the same information as the remained one. <br>
+Correlation matrix uses different number of observations (rows) to calculate the coefficients between feature pairs as it considers only non-null observations, but the number of non-null observations differs feature by feature.  <br>
 
 
-<div align="center">
-    <img src="figures/eda/heatmap_of_numerical_features_in_loan_dataset.svg" width=800 height=600>
-</div>
+
+
 
 
 
@@ -250,6 +253,7 @@ Applying Missingness Indicator Variables in order to be able to examine the rela
 
 # 3. Data Quality & Data Cleaning decisions
 <br>
+
 ## 3.1 Numerical features
 
 
