@@ -67,18 +67,18 @@ Target variable: status <br>
 
 ## 2.2 Data Characteristics
  ### 2.2.1 Data Dimensionality
-The dataset constitutes of 148670 rows and 37 columns. Each row indicates one observation whose properties are described by 37 different features in the dataset. See the dimensionality below.<br>
 
 <div align="center">
     <img src="figures/eda/loan_dataset_dimensionality.svg" alt=EDA_data_dimensionality width=600 height=400>
 </div>
+The dataset comprises 148670 rows and 37 columns. Each row indicates one observation whose properties are described by 37 different features in the dataset.
 
 
 ### 2.2.2 Data Types
-The dataset contains different data types. The types are representing intiger, float and object type data. 
-The intiger and float types are so-called numerical features, while the object type can be interpreted as categorial features.
-Due to the different data types, it is identified as heterogenous dataset.
-See the number of data types below.
+The dataset comprises various data types. The occuring types are representing integer, float and object type data. <br>
+The integer and float types are representing numerical features, while the object type represents categorical features.
+Due to the various data types, dataset is identified as heterogenous dataset.
+
 
 <div align="center">
     <img src="figures/eda/number_of_data_types_in_loan_dataset.svg" alt=EDA_data_types width=600 height=400>
@@ -86,34 +86,45 @@ See the number of data types below.
 
 
 ### 2.2.3 Missing Values
-13 features contain missing values.
-upfront_charges and interest_rate_spread are the dominant ones up to nearly 40k missing values.<br>
-A suspicious phenomenon can be observed among pairs of features.
-- The number of missing values among upfront_charges and interest_rate_spread is closely equal.
-- The number of missing values among property_value and ltv is equal.
-
-This phenomenon might derive from strong relationship among these feature groups. It requires further statistical examination.
-See the number of missing values below.
 
 <div align="center">
     <img src="figures/eda/number_of_missing_values_per_features_in_loan_dataset.svg" width=800 height=600>
 </div>
+13 features contain missing values.
+upfront_charges and interest_rate_spread are the dominant ones up to nearly 40k missing values.<br>
+A suspicious phenomenon can be observed among pairs of features.
+- The number of missing values among upfront_charges and interest_rate_spread is closely equal.
+- The number of missing values among property_value and ltv is exactly equal.
+
+These phenomena might derive from strong relationship among these feature pairs. It requires further statistical examination.
+
+
 
 ## 2.3 Properties of Numerical Features
 
 ### 2.3.1 Data Granularity (uniqueness) 
-The plot below shows the granularity (the uniqueness) of numerical features expressed in ratios.
-Higher the ratio, higher the number of unique values in the given feature.
-Features with ratio close to 1.0 imply unique identifiers in the dataset, rahter than informative/predictive features
-Features  'Unnamed:0', 'id' and 'year'  do not bring any valuable information to the model hence can be removed from further analysis
 
 <div align="center">
     <img src="figures/eda/granularity_of_numeric_features.svg" width=600 height=400>
 </div>
 
+The plot below shows the granularity (the uniqueness) of numerical features expressed in ratios.
+Higher the ratio, higher the number of unique values in the given feature.
+Features with ratio close to 1.0 imply unique identifiers in the dataset, rahter than informative/predictive features
+Features  'Unnamed:0', 'id' do not bring any valuable information to the model hence can be removed from further analysis.
 
 
-### 2.3.2 Univariate Analysis
+
+
+### 2.3.2 Feature Redundancy
+
+<div align="center" style="margin: 0;">
+    <img src="figures/eda/feature_redundancy_ratio.svg" width=600 height=400>
+</div>
+
+
+
+### 2.3.3 Univariate Analysis
 
 <div align="center">
     <img src="figures/eda/distribution_of_numerical_features_in_loan_dataset.svg" width=1600 height=1400>
@@ -122,6 +133,9 @@ Features  'Unnamed:0', 'id' and 'year'  do not bring any valuable information to
 <br>
 <br>
 <br>
+<div align="center">
+    <img src="figures/eda/distribution_of_binary_numerical_features.svg" width=800 height=600>
+</div>
 The features 'status', 'high_interest_rate', 'senior_age' are binary features as the value set is [0;1].
 As a result, cardinality is 2 of these features.
 The plot depicts the cardinality and the frequency to illustrate the imbalancement.
@@ -133,17 +147,15 @@ It is particularly important for the target variable as its imbalancement can ne
 
 These have to be taken into consideration at the time of sampling the dataset.
 
-<div align="center">
-    <img src="figures/eda/distribution_of_binary_numerical_features.svg" width=800 height=600>
-</div>
 
 
-### 2.3.3 Multivariate Analysis
+
+### 2.3.4 Multivariate Analysis
 Correlation matrix is applied to understand the relationships among numerical features. <br><br>
 
 
 <div align="center">
-    <img src="figures/eda/heatmap_of_numerical_features_in_loan_dataset.svg" width=800 height=600>
+    <img src="figures/eda/correlation_matrix_of_numerical_features_in_loan_dataset.svg" width=800 height=600>
 </div>
 
 
