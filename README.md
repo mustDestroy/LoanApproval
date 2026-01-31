@@ -50,7 +50,7 @@ to avoid booking unnecessary appointment in brick-and-mortar bank branches to sa
 - :white_large_square: 9. Compare tuned models
 - :white_large_square: 10. Final model training on full training data
 - :white_large_square: 11. Evaluate on test data
-- :white_large_square: 12.Draw conclusion
+- :white_large_square: 12. Draw conclusion
 
 **Other tasks to do**
 - :white_check_mark: Searching for Dataset
@@ -62,6 +62,10 @@ to avoid booking unnecessary appointment in brick-and-mortar bank branches to sa
 - :white_check_mark: Use data types in function args
 - :white_large_square: Set unified bar width in bar/count plots
 - :white_check_mark: Use .svg format to save figures
+- :white_check_mark: Add feature redundancy plot in EDA
+- :white_check_mark: Add data granularity plot in EDA
+- :white_check_mark: Write deduction for correlation matrix of numerical features
+- :white_large_square: Write deduction for box plots
 
 **Further steps**
 - :white_large_square: Employ cloud services e.g. Databricks, Snowflake
