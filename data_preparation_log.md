@@ -129,6 +129,17 @@ Features  'Unnamed:0', 'id' do not bring any valuable information to the model h
 <div align="center">
     <img src="figures/eda/distribution_of_numerical_features_in_loan_dataset.svg" width=1600 height=1400>
 </div>
+
+loan_amount
+Global
+Skewness:
+Shows a moderate right skew
+Outlier diagnosis: 
+- Massive amount of positive outliers grater than fall outside of the whiskers on the plot.Economically plausible. No negative outliers are detected
+Further acts:
+
+
+
 <br>
 <br>
 <br>
